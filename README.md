@@ -1,186 +1,82 @@
 # 📊 AI Project Health Reporting Agent
 
-> An AI-powered Project Health Reporting system that automatically analyzes Microsoft Project Excel exports, evaluates project health using a custom scoring engine, generates executive insights with an LLM, and produces a professional PowerPoint report.
+## Overview
+
+The AI Project Health Reporting Agent is a Python-based application that analyzes project data from an Excel workbook and automatically generates a project health report.
+
+The application extracts important project metrics, calculates an overall health score using a custom scoring engine, generates an executive summary using Groq Llama 3.3, and creates a PowerPoint report.
 
 ---
 
-## 🚀 Overview
+## Features
 
-Project managers often spend hours manually reviewing project plans, calculating KPIs, preparing executive summaries, and creating presentation decks.
-
-The **AI Project Health Reporting Agent** automates this entire workflow.
-
-Given an exported Microsoft Project Excel file, the system:
-
-- Parses project data
-- Extracts project KPIs
-- Calculates project health using a custom scoring engine
-- Classifies project status using a RAG (Red-Amber-Green) model
-- Uses an LLM (Groq + Llama 3.3) to generate an executive summary
-- Automatically creates a professional PowerPoint report for stakeholders
+- Read project data from an Excel workbook
+- Extract important project metrics
+- Calculate project health score
+- Classify project status using RAG (Green / Amber / Red)
+- Generate an AI-based executive summary using Groq
+- Automatically create a PowerPoint report
 
 ---
 
-# ✨ Features
+## Project Workflow
 
-✅ Automated Excel Parsing
-
-✅ Intelligent Project Metrics Extraction
-
-✅ Custom Project Health Scoring Engine
-
-✅ RAG (Red / Amber / Green) Classification
-
-✅ AI-generated Executive Summary
-
-✅ Professional PowerPoint Report Generation
-
-✅ Modular Clean Architecture
-
----
-
-# 🏗️ System Architecture
-
-```text
-                 Microsoft Project
-                        │
-                        ▼
-              Excel Workbook (.xlsx)
-                        │
-                        ▼
-                 Excel Parser
-                        │
-                        ▼
-             Metrics Extraction Engine
-                        │
-                        ▼
-            Project Health Scoring Engine
-                        │
-                        ▼
-              Health Assessment (RAG)
-                        │
-                        ▼
-             Groq LLM (Llama 3.3 70B)
-                        │
-                        ▼
-            Executive Summary Generator
-                        │
-                        ▼
-          PowerPoint Report Generator
-                        │
-                        ▼
-        Executive Project Health Report (.pptx)
+```
+Excel Workbook
+      │
+      ▼
+Excel Parser
+      │
+      ▼
+Metrics Extraction
+      │
+      ▼
+Health Scoring Engine
+      │
+      ▼
+RAG Status
+      │
+      ▼
+Groq LLM
+      │
+      ▼
+Executive Summary
+      │
+      ▼
+PowerPoint Report
 ```
 
 ---
 
-# 📂 Project Structure
+## Project Structure
 
-```text
-Project-Health-Reporting-Agent/
+```
+app/
+│
+├── models/
+│
+├── parser/
+│
+├── presentation/
+│
+├── prompts/
+│
+├── services/
+│
+├── utils/
+│
+└── main.py
 
-│
-├── app/
-│   ├── agents/
-│   ├── models/
-│   │     ├── health_result.py
-│   │     └── project_metrics.py
-│   │
-│   ├── parser/
-│   │     └── excel_parser.py
-│   │
-│   ├── presentation/
-│   │     └── ppt_generator.py
-│   │
-│   ├── prompts/
-│   │
-│   ├── services/
-│   │     ├── health_scoring_engine.py
-│   │     ├── metrics_extractor.py
-│   │     └── reasoning_service.py
-│   │
-│   ├── utils/
-│   │
-│   └── main.py
-│
-├── data/
-│     └── S2P Project.xlsx
-│
-├── outputs/
-│     └── Monthly_Project_Report.pptx
-│
-├── requirements.txt
-├── README.md
-└── .env
+data/
+
+outputs/
 ```
 
 ---
 
-# ⚙️ Workflow
+## Health Scoring
 
-### Step 1
-
-Read Microsoft Project Excel Export
-
-↓
-
-### Step 2
-
-Extract
-
-- Total Tasks
-- Completed Tasks
-- Delayed Tasks
-- Critical Tasks
-- Milestones
-- Average Completion
-
-↓
-
-### Step 3
-
-Calculate
-
-- Completion Score
-- Schedule Score
-- Milestone Score
-- Blocker Score
-
-↓
-
-### Step 4
-
-Generate
-
-Overall Project Health Score
-
-↓
-
-### Step 5
-
-Determine
-
-- 🟢 Green
-- 🟡 Amber
-- 🔴 Red
-
-↓
-
-### Step 6
-
-Generate Executive Summary using Groq Llama 3.3
-
-↓
-
-### Step 7
-
-Generate Executive PowerPoint Report
-
----
-
-# 📈 Health Scoring Logic
-
-The project health score is calculated using weighted KPIs:
+The overall project score is calculated using four metrics.
 
 | Metric | Weight |
 |---------|--------|
@@ -189,84 +85,29 @@ The project health score is calculated using weighted KPIs:
 | Milestone Score | 20% |
 | Blocker Score | 20% |
 
-Final Health Score:
-
-```
-Overall Health =
-0.35 × Schedule
-+ 0.25 × Completion
-+ 0.20 × Milestones
-+ 0.20 × Blockers
-```
-
----
-
-# 🟢 RAG Classification
+Based on the final score:
 
 | Score | Status |
 |---------|--------|
 | ≥ 75 | 🟢 Green |
-| 50–74 | 🟡 Amber |
+| 50 – 74 | 🟡 Amber |
 | < 50 | 🔴 Red |
 
 ---
 
-# 🤖 AI Integration
+## Technologies Used
 
-The project uses:
-
-- **Groq API**
-- **Llama 3.3 70B Versatile**
-
-The LLM transforms numerical project metrics into a concise executive summary covering:
-
-- Current Project Status
-- Key Risks
-- Business Impact
-- Recommendations
-
----
-
-# 📑 PowerPoint Report
-
-The system automatically generates a multi-slide executive report including:
-
-- Executive Cover
-- KPI Dashboard
-- Risk Assessment
-- Recommendations
-- AI Executive Summary
-- Project Snapshot & Conclusion
-
----
-
-# 🛠️ Tech Stack
-
-### Programming
-
-- Python 3
-
-### Data Processing
-
+- Python
 - Pandas
 - OpenPyXL
-
-### AI
-
+- python-pptx
 - Groq API
 - Llama 3.3 70B
-
-### Presentation
-
-- python-pptx
-
-### Environment
-
 - python-dotenv
 
 ---
 
-# 🚀 Installation
+## Installation
 
 Clone the repository
 
@@ -280,7 +121,7 @@ Create a virtual environment
 python -m venv .venv
 ```
 
-Activate it
+Activate the environment
 
 ### Windows
 
@@ -297,12 +138,12 @@ pip install -r requirements.txt
 Create a `.env` file
 
 ```env
-GROQ_API_KEY=your_api_key_here
+GROQ_API_KEY=your_api_key
 ```
 
 ---
 
-# ▶️ Run
+## Run the Project
 
 ```bash
 python -m app.main
@@ -310,39 +151,35 @@ python -m app.main
 
 ---
 
-# 📁 Output
+## Output
 
-The generated report will be saved in:
+The application generates:
 
-```text
+- Project Health Score
+- RAG Status
+- Executive Summary
+- PowerPoint Report
+
+The PowerPoint report is saved in:
+
+```
 outputs/
-    Monthly_Project_Report.pptx
+Monthly_Project_Report.pptx
 ```
 
 ---
 
-# 🔮 Future Improvements
+## Future Improvements
 
-- Interactive Dashboard
-- Multi-project Portfolio Analysis
-- Predictive Project Health Forecasting
-- Risk Trend Analysis
-- Email Report Automation
-- PDF Report Generation
-- Web Dashboard using FastAPI
+- Improve the health scoring logic
+- Support multiple Excel files
+- Add more visualizations to the PowerPoint report
+- Build a simple web interface
 
 ---
 
-# 👨‍💻 Author
+## Author
 
-**Naman**
+**Naman Upreti**
 
 Computer Science & Engineering (Data Science)
-
-AI • Backend Engineering • Generative AI • Python
-
----
-
-# 📜 License
-
-This project was developed for educational and portfolio purposes.
