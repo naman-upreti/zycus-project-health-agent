@@ -2,105 +2,85 @@
 
 ## Overview
 
-The AI Project Health Reporting Agent is a Python-based application that analyzes project data from an Excel workbook and automatically generates a project health report.
+The AI Project Health Reporting Agent is a Python-based application that analyzes project planning data from an Excel workbook, calculates project health using a custom scoring engine, generates an AI-powered executive summary using Groq Llama 3.3, and automatically creates a PowerPoint report.
 
-The application extracts important project metrics, calculates an overall health score using a custom scoring engine, generates an executive summary using Groq Llama 3.3, and creates a PowerPoint report.
+The goal of the project is to automate project health assessment and generate an executive-ready report from project data.
 
 ---
 
 ## Features
 
 - Read project data from an Excel workbook
-- Extract important project metrics
+- Extract project metrics
 - Calculate project health score
 - Classify project status using RAG (Green / Amber / Red)
-- Generate an AI-based executive summary using Groq
-- Automatically create a PowerPoint report
+- Generate an AI-powered executive summary using Groq
+- Automatically generate a PowerPoint report
 
 ---
 
-# ✨ Features
-
-✅ Automated Excel Parsing
-
-✅ Intelligent Project Metrics Extraction
-
-✅ Custom Project Health Scoring Engine
-
-✅ RAG (Red / Amber / Green) Classification
-
-✅ AI-generated Executive Summary
-
-✅ Professional PowerPoint Report Generation
-
-✅ Modular Clean Architecture
-
----
-
-# 🏗️ System Architecture
+## System Architecture
 
 ```text
-                 Microsoft Project
-                        │
-                        ▼
               Excel Workbook (.xlsx)
-                        │
-                        ▼
-                 Excel Parser
-                        │
-                        ▼
-             Metrics Extraction Engine
-                        │
-                        ▼
-            Project Health Scoring Engine
-                        │
-                        ▼
-              Health Assessment (RAG)
-                        │
-                        ▼
-             Groq LLM (Llama 3.3 70B)
-                        │
-                        ▼
-            Executive Summary Generator
-                        │
-                        ▼
-          PowerPoint Report Generator
-                        │
-                        ▼
-        Executive Project Health Report (.pptx)
+                      │
+                      ▼
+                Excel Parser
+                      │
+                      ▼
+           Metrics Extraction Engine
+                      │
+                      ▼
+         Project Health Scoring Engine
+                      │
+                      ▼
+             Health Assessment (RAG)
+                      │
+                      ▼
+          Groq LLM (Llama 3.3 70B)
+                      │
+                      ▼
+        Executive Summary Generator
+                      │
+                      ▼
+        PowerPoint Report Generator
+                      │
+                      ▼
+      Executive Project Health Report
 ```
 
 ---
 
 ## Project Structure
 
-```
-app/
-│
-├── models/
-│
-├── parser/
-│
-├── presentation/
-│
-├── prompts/
-│
-├── services/
-│
-├── utils/
-│
-└── main.py
+```text
+AI-Project-Health-Reporting-Agent/
 
-data/
-
-outputs/
+│
+├── app/
+│   ├── models/
+│   ├── parser/
+│   ├── presentation/
+│   ├── prompts/
+│   ├── services/
+│   ├── utils/
+│   └── main.py
+│
+├── data/
+│
+├── outputs/
+│
+├── requirements.txt
+├── README.md
+├── LICENSE
+└── .gitignore
 ```
 
 ---
 
 ## Health Scoring
 
-The overall project score is calculated using four metrics.
+The overall project health score is calculated using four weighted metrics.
 
 | Metric | Weight |
 |---------|--------|
@@ -109,7 +89,19 @@ The overall project score is calculated using four metrics.
 | Milestone Score | 20% |
 | Blocker Score | 20% |
 
-Based on the final score:
+Overall Score:
+
+```
+Overall Score =
+0.35 × Schedule Score +
+0.25 × Completion Score +
+0.20 × Milestone Score +
+0.20 × Blocker Score
+```
+
+---
+
+## RAG Classification
 
 | Score | Status |
 |---------|--------|
@@ -126,7 +118,7 @@ Based on the final score:
 - OpenPyXL
 - python-pptx
 - Groq API
-- Llama 3.3 70B
+- Llama 3.3 70B Versatile
 - python-dotenv
 
 ---
@@ -137,6 +129,12 @@ Clone the repository
 
 ```bash
 git clone <repository-url>
+```
+
+Navigate to the project directory
+
+```bash
+cd AI-Project-Health-Reporting-Agent
 ```
 
 Create a virtual environment
@@ -179,26 +177,28 @@ python -m app.main
 
 The application generates:
 
-- Project Health Score
+- Overall Project Health Score
 - RAG Status
-- Executive Summary
-- PowerPoint Report
+- KPI Scores
+- AI-generated Executive Summary
+- Executive PowerPoint Report
 
-The PowerPoint report is saved in:
+Generated PowerPoint:
 
-```
+```text
 outputs/
-Monthly_Project_Report.pptx
+└── Monthly_Project_Report.pptx
 ```
 
 ---
 
 ## Future Improvements
 
-- Improve the health scoring logic
-- Support multiple Excel files
-- Add more visualizations to the PowerPoint report
+- Improve the health scoring model
+- Support multiple project reports
+- Add more PowerPoint visualizations
 - Build a simple web interface
+- Export reports as PDF
 
 ---
 
@@ -208,10 +208,14 @@ Monthly_Project_Report.pptx
 
 Computer Science & Engineering (Data Science)
 
-AI • Backend Engineering • Generative AI • Python
+Interests:
+- Artificial Intelligence
+- Backend Development
+- Generative AI
+- Python
 
 ---
 
-# 📜 License
+## License
 
-This project was developed for educational and portfolio purposes.
+This project is released under the MIT License.
