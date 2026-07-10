@@ -42,7 +42,7 @@ Given an exported Microsoft Project Excel file, the system:
 # 🏗️ System Architecture
 
 ```text
-                 Microsoft Project
+                     Project
                         │
                         ▼
               Excel Workbook (.xlsx)
