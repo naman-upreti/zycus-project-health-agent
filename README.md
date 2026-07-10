@@ -19,31 +19,55 @@ The application extracts important project metrics, calculates an overall health
 
 ---
 
-## Project Workflow
+# ✨ Features
 
-```
-Excel Workbook
-      │
-      ▼
-Excel Parser
-      │
-      ▼
-Metrics Extraction
-      │
-      ▼
-Health Scoring Engine
-      │
-      ▼
-RAG Status
-      │
-      ▼
-Groq LLM
-      │
-      ▼
-Executive Summary
-      │
-      ▼
-PowerPoint Report
+✅ Automated Excel Parsing
+
+✅ Intelligent Project Metrics Extraction
+
+✅ Custom Project Health Scoring Engine
+
+✅ RAG (Red / Amber / Green) Classification
+
+✅ AI-generated Executive Summary
+
+✅ Professional PowerPoint Report Generation
+
+✅ Modular Clean Architecture
+
+---
+
+# 🏗️ System Architecture
+
+```text
+                 Microsoft Project
+                        │
+                        ▼
+              Excel Workbook (.xlsx)
+                        │
+                        ▼
+                 Excel Parser
+                        │
+                        ▼
+             Metrics Extraction Engine
+                        │
+                        ▼
+            Project Health Scoring Engine
+                        │
+                        ▼
+              Health Assessment (RAG)
+                        │
+                        ▼
+             Groq LLM (Llama 3.3 70B)
+                        │
+                        ▼
+            Executive Summary Generator
+                        │
+                        ▼
+          PowerPoint Report Generator
+                        │
+                        ▼
+        Executive Project Health Report (.pptx)
 ```
 
 ---
@@ -183,3 +207,11 @@ Monthly_Project_Report.pptx
 **Naman Upreti**
 
 Computer Science & Engineering (Data Science)
+
+AI • Backend Engineering • Generative AI • Python
+
+---
+
+# 📜 License
+
+This project was developed for educational and portfolio purposes.
